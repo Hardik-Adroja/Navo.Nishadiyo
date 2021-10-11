@@ -1,6 +1,7 @@
 .sidebar {
   height: 100vh;
-  background: #000000;
+  background: #212529;
+  margin-top: 56px;
   width: 200px;
   position: fixed;
   top: 0;
@@ -40,7 +41,5 @@ ul {
       border-left: 4px solid #ff0000;
     }
   }
-  @media(max-width:767px) {
-    display: none;
-  }
+ 
 }
