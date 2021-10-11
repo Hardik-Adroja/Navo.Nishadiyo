@@ -1,0 +1,46 @@
+.sidebar {
+  height: 100vh;
+  background: #000000;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #fff;
+  display: block;
+  z-index: 100;
+ul {
+    margin-top: 30px;
+}
+  li {
+    font-size: 15px;
+    display: block;
+
+    cursor: pointer;
+    transition-duration: 0.5s;
+
+    i {
+      margin-right: 8px;
+    }
+
+    a {
+      color: #fff;
+      padding: 15px 15px;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: black;
+        background-color: white;
+      }
+    }
+
+
+
+    &.active {
+      background: #4269a8;
+      border-left: 4px solid #ff0000;
+    }
+  }
+  @media(max-width:767px) {
+    display: none;
+  }
+}

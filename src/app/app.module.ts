@@ -9,6 +9,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ServiceComponent } from './service/service.component';
+import { FindComponent } from './find/find.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -17,7 +22,12 @@ import { HeaderComponent } from './header/header.component';
     ItemsComponent,
     HomeComponent,
     ProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent,
+    DashboardComponent,
+    ServiceComponent,
+    FindComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
