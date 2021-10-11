@@ -1,0 +1,23 @@
+li {
+    font-size: 1.05rem;
+}
+.img-cont {
+    position: relative;
+    // height: 70vh;
+    width: 49%;
+    height: 75vh;
+    overflow: hidden;
+    
+}
+.img-cont img {
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 50%;
+    transform: scaleX(-1);
+    right: -40%;
+    padding: 10px;
+    border: 1px solid black;
+}
