@@ -4,8 +4,8 @@ li {
 .img-cont {
     position: relative;
     // height: 70vh;
-    width: 49%;
-    height: 75vh;
+    width: 41%;
+    height: 68vh;
     overflow: hidden;
     
 }
@@ -17,7 +17,12 @@ li {
     position: absolute;
     border-radius: 50%;
     transform: scaleX(-1);
-    right: -40%;
+    right: -50%;
     padding: 10px;
     border: 1px solid black;
+    transition-duration: 1.5s;
+}
+.img-cont img:hover {
+    right: 0%;
+    border: 2px solid rgb(169, 173, 109);
 }

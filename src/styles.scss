@@ -4,7 +4,7 @@
     width: calc(100%-200px);
 }
 body {
-    font-family: var(--bs-font-monospace);
+    font-family: var(--bs-font-monospace) !important;
 }
 .f-18{
     font-size: 18px;
