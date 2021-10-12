@@ -1,7 +1,7 @@
 .sidebar {
   height: 100vh;
   background: #212529;
-  margin-top: 56px;
+  margin-top: 50px;
   width: 200px;
   position: fixed;
   top: 0;
@@ -27,6 +27,7 @@ ul {
       color: #fff;
       padding: 15px 15px;
       transition-duration: 0.5s;
+      font-family: var(--bs-font-monospace);
 
       &:hover {
         color: black;
