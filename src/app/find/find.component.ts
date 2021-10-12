@@ -63,28 +63,35 @@ export class FindComponent implements OnInit {
     }
   ];
   find = "";
+  sarifListCopy: any = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.sarifListCopy = this.sarifList
   }
   deleteSarif(id: number) {
     console.log(id)
     const sarifIndex = this.sarifList.findIndex((item) => item.id === id);
     console.log(sarifIndex)
-    this.sarifList.splice(sarifIndex,1)
+    this.sarifList.splice(sarifIndex, 1)
   }
-  addSarif(){
-    const newSarif = {id: 7,
+  addSarif() {
+    const newSarif = {
+      id: 7,
       name: "Munna",
       address: "Mirzapur",
       mobile: "Mi",
       age: 28,
       weight: 78,
-      netWorth: 37200000};
-      this.sarifList.push(newSarif);
+      netWorth: 37200000
+    };
+    this.sarifList.push(newSarif);
   }
-  findSarif(){
-    
+  findSarif() {
+    console.log(this.find)
+    this.sarifList = this.sarifListCopy.filter((sarif: any) => sarif.name.toLocaleLowerCase().includes(this.find.toLocaleLowerCase()) 
+    || sarif.address.toLocaleLowerCase().includes(this.find.toLocaleLowerCase())
+    || sarif.mobile.toLocaleLowerCase().includes(this.find.toLocaleLowerCase()))
   }
 }
