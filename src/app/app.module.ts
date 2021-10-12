@@ -16,6 +16,7 @@ import { FindComponent } from './find/find.component';
 import { ReportComponent } from './report/report.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import {AccordionModule} from 'primeng/accordion';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CommonModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    AccordionModule
 
   ],
   providers: [],
