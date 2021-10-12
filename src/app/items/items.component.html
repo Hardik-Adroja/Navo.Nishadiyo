@@ -4,11 +4,11 @@
     <div class="card">
       <div class="card card-item">
         <div> 
-            <button class="btn btn-primary" type="button" data-toggle="collapse"
-              data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Space</button>
+            <button class="btn btn-primary" type="button" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Space</button>
         </div>
 
-        <div class="collapse" id="collapseExample">
+        <div id="collapseBasic" [collapse]="isCollapsed">
           <div class="card card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
             nemo quisquam officiis illo, ipsa voluptatem, optio deserunt minima magnam voluptates sint explicabo dolor
             impedit cupiditate voluptatum quia eligendi odio excepturi? Amet omnis esse recusandae doloribus unde,

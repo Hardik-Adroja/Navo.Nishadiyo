@@ -14,6 +14,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServiceComponent } from './service/service.component';
 import { FindComponent } from './find/find.component';
 import { ReportComponent } from './report/report.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -35,6 +37,9 @@ import { ReportComponent } from './report/report.component';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CollapseModule.forRoot()
+
   ],
   providers: [],
   bootstrap: [AppComponent]

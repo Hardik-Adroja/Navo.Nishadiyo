@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
+  isCollapsed = true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

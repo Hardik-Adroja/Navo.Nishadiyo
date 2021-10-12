@@ -14,3 +14,8 @@ body {
 .cardbodycolor{
     background-color: rgb(48 52 57 / 80%);
 }
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
