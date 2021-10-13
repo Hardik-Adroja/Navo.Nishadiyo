@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'app-find',
@@ -62,6 +64,10 @@ export class FindComponent implements OnInit {
       netWorth: 3720000000
     }
   ];
+  title = 'Sarif List';
+  head = [['ID', 'NAME', 'ADDRESS', 'MOBILE', 'AGE', 'WEIGHT', 'NET WORTH']];
+
+
   find = "";
   sarifListCopy: any = [];
 
@@ -90,8 +96,29 @@ export class FindComponent implements OnInit {
   }
   findSarif() {
     console.log(this.find)
-    this.sarifList = this.sarifListCopy.filter((sarif: any) => sarif.name.toLocaleLowerCase().includes(this.find.toLocaleLowerCase()) 
-    || sarif.address.toLocaleLowerCase().includes(this.find.toLocaleLowerCase())
-    || sarif.mobile.toLocaleLowerCase().includes(this.find.toLocaleLowerCase()))
+    this.sarifList = this.sarifListCopy.filter((sarif: any) => sarif.name.toLocaleLowerCase().includes(this.find.toLocaleLowerCase())
+      || sarif.address.toLocaleLowerCase().includes(this.find.toLocaleLowerCase())
+      || sarif.mobile.toLocaleLowerCase().includes(this.find.toLocaleLowerCase()))
+  }
+
+  createPdf() {
+    var doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text('Sarif List', 11, 8);
+    doc.setFontSize(11);
+    doc.setTextColor(100);
+
+
+    (doc as any).autoTable({
+      head: this.head,
+      body: this.sarifList,
+      theme: 'plain',
+      didDrawCell: (data: any) => {
+        console.log(data.column.index)
+      }
+    })
+    doc.output('dataurlnewwindow');
+    doc.save('myteamdetail.pdf');
   }
 }
