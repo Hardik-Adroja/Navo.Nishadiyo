@@ -1,7 +1,7 @@
 <div class="main-content-box">
   <div class="container mt-4">
     <h2>Future is here</h2>
-    <div class="card">
+    <!-- <div class="card">
       <div class="card card-item mt-4 mx-3">
         <div>
           <button class="btn btn-secondary" style="min-width: 12%;text-align: left;" type="button" (click)="isCollapsed1 = !isCollapsed1"
@@ -54,9 +54,73 @@
             deleniti, error accusamus rerum, deserunt inventore quas!</div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
   </div>
+
+  <div class="card mx-4 mt-4 pb-4">
+    <div class="row g-0 justify-content-between">
+      <h5 class="mt-4 mb-4 mx-1 col-2 lh-base">Client List:</h5>
+      <input class="col-sm-2 m-auto p-2 rounded-3" style="height: 40px;" type="text" placeholder="Kuch likh to sahi...">
+      <button class="btn btn-dark col-2 mx-3" (click)="addBhidu()">Gang Me Samil Kar <i class="bi bi-plus-circle"></i></button>
+    </div>
+    <table class="table table-hover container">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Thikana</th>
+          <th scope="col">Dhandha</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of clients">
+          <td>{{item.name}}</td>
+          <td>{{item.thikana}}</td>
+          <td>{{item.dhandha}}</td>
+          <td>{{item.owner}}</td>
+          <td>{{item.status}}</td>
+          <td class="text-center" (click)="katDal(item.id)"><i class="bi bi-scissors"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
+<form style="width: 40%;" class="form mx-4 mt-0" *ngIf="buttonPressed">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-warning" (click)="buttonPressed=false"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <h4 class="mb-4 text-light col">Apni Detail Dal Varna Kat Dalunga:</h4>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingName" required placeholder="Chal Be Name likh" [(ngModel)]="newMember.name">
+    <label for="floatingName">Name Bata Bhidu</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingThikana" required placeholder="Kholi Kaha He" [(ngModel)]="newMember.thikana">
+    <label for="floatingThikana">Kahase Ho</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingDhandha" required placeholder="Kam Kya Karta He Be" [(ngModel)]="newMember.dhandha">
+    <label for="floatingDhandha">Dhandha Bata</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingOwner" required placeholder="Kiska Kutta He" [(ngModel)]="newMember.owner">
+    <label for="floatingOwner">Apne Baap Ka Name Likh</label>
+  </div>
+  <div class="form-floating mb-3">
+    <select class="form-select form-select-lg mb-3" id="floatingStatus" required [(ngModel)]="newMember.status">
+      <option value="Jinda" id="Status">Jinda</option>
+      <option value="Murda">Murda</option>
+    </select>
+    <label for="floatingStatus">Jinda He Ke Tapak Gaya</label>
+  </div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <input class="btn btn-warning" type="submit" (click)="addNewMember()">
+      Welcome To Gang
+  </div>
+</form>

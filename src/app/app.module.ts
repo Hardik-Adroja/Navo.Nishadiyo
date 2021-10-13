@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import {AccordionModule} from 'primeng/accordion';
 import {FieldsetModule} from 'primeng/fieldset';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {FieldsetModule} from 'primeng/fieldset';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     AccordionModule,
-    FieldsetModule
+    FieldsetModule,
+    TableModule
 
   ],
   providers: [],
