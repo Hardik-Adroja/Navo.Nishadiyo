@@ -2,14 +2,15 @@
     font-family: var(--bs-font-monospace);
 }
 .nav-item a {
-    border-radius: 10px;
+    // border-radius: 10px;
     width: 100px;
     text-align: center;
-
+    padding: 15px;
+    transition-duration: 0.5s;
 }
 .nav .nav-item a 
 {&:hover {
     background-color: white;
     color: black !important;
-    border-radius: 10px;
+    // border-radius: 10px;
 }}
