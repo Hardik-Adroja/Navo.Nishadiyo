@@ -2,14 +2,53 @@
   <div class="container mt-4">
     <h2>Future is here</h2>
     <div class="card">
-      <div class="card card-item">
-        <div> 
-            <button class="btn btn-primary" type="button" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Space</button>
+      <div class="card card-item mt-4 mx-3">
+        <div>
+          <button class="btn btn-secondary" style="min-width: 12%;text-align: left;" type="button" (click)="isCollapsed1 = !isCollapsed1"
+            [attr.aria-expanded]="!isCollapsed1" aria-controls="collapseBasic1">Space <i class="bi bi-plus" *ngIf = "isCollapsed1"></i><i class="bi bi-dash" *ngIf = "!isCollapsed1"></i></button>
         </div>
 
-        <div id="collapseBasic" [collapse]="isCollapsed">
-          <div class="card card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
+        <div id="collapseBasic1" [collapse]="isCollapsed1">
+          <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
+            nemo quisquam officiis illo, ipsa voluptatem, optio deserunt minima magnam voluptates sint explicabo dolor
+            impedit cupiditate voluptatum quia eligendi odio excepturi? Amet omnis esse recusandae doloribus unde,
+            deleniti, error accusamus rerum, deserunt inventore quas!</div>
+        </div>
+      </div>
+      <div class="card card-item mt-4 mx-3">
+        <div>
+          <button class="btn btn-secondary" style="min-width: 12%;text-align: left;" type="button" (click)="isCollapsed2 = !isCollapsed2"
+            [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic2">Environment <i class="bi bi-plus" *ngIf = "isCollapsed2"></i><i class="bi bi-dash" *ngIf = "!isCollapsed2"></i></button>
+        </div>
+
+        <div id="collapseBasic2" [collapse]="isCollapsed2">
+          <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
+            nemo quisquam officiis illo, ipsa voluptatem, optio deserunt minima magnam voluptates sint explicabo dolor
+            impedit cupiditate voluptatum quia eligendi odio excepturi? Amet omnis esse recusandae doloribus unde,
+            deleniti, error accusamus rerum, deserunt inventore quas!</div>
+        </div>
+      </div>
+      <div class="card card-item mt-4 mx-3">
+        <div>
+          <button class="btn btn-secondary" style="min-width: 12%;text-align: left;" type="button" (click)="isCollapsed3 = !isCollapsed3"
+            [attr.aria-expanded]="!isCollapsed3" aria-controls="collapseBasic3">Future <i class="bi bi-plus" *ngIf = "isCollapsed3"></i><i class="bi bi-dash" *ngIf = "!isCollapsed3"></i></button>
+        </div>
+
+        <div id="collapseBasic3" [collapse]="isCollapsed3">
+          <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
+            nemo quisquam officiis illo, ipsa voluptatem, optio deserunt minima magnam voluptates sint explicabo dolor
+            impedit cupiditate voluptatum quia eligendi odio excepturi? Amet omnis esse recusandae doloribus unde,
+            deleniti, error accusamus rerum, deserunt inventore quas!</div>
+        </div>
+      </div>
+      <div class="card card-item mt-4 mb-4 mx-3">
+        <div>
+          <button class="btn btn-secondary" style="min-width: 12%;text-align: left;" type="button" (click)="isCollapsed4 = !isCollapsed4"
+            [attr.aria-expanded]="!isCollapsed4" aria-controls="collapseBasic4">Speed <i class="bi bi-plus" *ngIf = "isCollapsed4"></i><i class="bi bi-dash" *ngIf = "!isCollapsed4"></i></button>
+        </div>
+
+        <div id="collapseBasic4" [collapse]="isCollapsed4">
+          <div class="card-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga molestias, suscipit
             nemo quisquam officiis illo, ipsa voluptatem, optio deserunt minima magnam voluptates sint explicabo dolor
             impedit cupiditate voluptatum quia eligendi odio excepturi? Amet omnis esse recusandae doloribus unde,
             deleniti, error accusamus rerum, deserunt inventore quas!</div>
@@ -17,6 +56,7 @@
       </div>
     </div>
 
-  </div>
 
+  </div>
 </div>
+
