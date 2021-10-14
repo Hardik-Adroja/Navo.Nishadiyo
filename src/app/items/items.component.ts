@@ -13,12 +13,15 @@ export class ItemsComponent implements OnInit {
   isCollapsed3 = true;
   isCollapsed4 = true;
   buttonPressed = false;
+  ungli = "";
+  clientsCopy:any = [];
+  
   clients = [
     {
       id: 1,
       name: 'Bhikho Batli',
       thikana: "India",
-      dhandha: "Earth",
+      dhandha: "Secret",
       owner: "Bhikho",
       status: "Jinda"
     },
@@ -84,6 +87,7 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.clientsCopy = this.clients;
 
   }
   katDal(id: any) {
@@ -134,6 +138,16 @@ export class ItemsComponent implements OnInit {
   addNewMember() {
     this.clients.push(this.newMember);
     this.buttonPressed = false
+  }
+  findBhidu() {
+    console.log(this.ungli);
+    this.clients = this.clientsCopy.filter((bhidu:any)=>bhidu.name.toUpperCase().includes(this.ungli.toUpperCase())
+    || bhidu.thikana.toUpperCase().includes(this.ungli.toUpperCase())
+    || bhidu.dhandha.toUpperCase().includes(this.ungli.toUpperCase())
+    || bhidu.owner.toUpperCase().includes(this.ungli.toUpperCase())
+    || bhidu.status.toUpperCase().includes(this.ungli.toUpperCase())
+    )
+
   }
 
 }

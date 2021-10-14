@@ -1,36 +1,49 @@
 li {
-    font-size: 1.05rem;
+  font-size: 1.05rem;
 }
+
 .img-cont {
-    position: relative;
-    // height: 70vh;
-    width: 41%;
-    height: 68vh;
-    overflow: hidden;
-    
+  position: relative;
+  // height: 70vh;
+  width: 41%;
+  height: 68vh;
+  overflow: hidden;
+
 }
+
 .img-cont img {
-    background-size: cover;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    border-radius: 10%;
-    right: 0%;
-    padding: 20px;
-    transition-duration: 0.5s;
-    animation: move 2s linear infinite;
+  background-size: cover;
+  position: absolute;
+  height: 65%;
+  width: 65%;
+  position: absolute;
+  border-radius: 10%;
+  right: 15%;
+  top: 10%;
+  padding: 20px;
+  transition-duration: 0.5s;
+  animation: move 2s linear infinite;
 }
+
 .img-cont img:hover {
-    right: 0%;
-    transform: scale(1.2);
-    animation: none;
-    
-    
+  transform: scale(1.3);
+  animation: none;
+  top: 20%;
+
+
 }
+
 @keyframes move {
-    0% {transform: scale(1);
-        }
-    50% {transform: scale(1.2);
-        }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1);
+    top: 35%;
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
