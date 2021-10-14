@@ -6,11 +6,48 @@
     width: 100px;
     text-align: center;
     padding: 15px;
-    transition-duration: 0.5s;
 }
-.nav .nav-item a 
-{&:hover {
+.nav li a:hover {
     background-color: white;
+    // border-radius: 20px;
     color: black !important;
+    // transition-duration: 0s;
     // border-radius: 10px;
-}}
+}
+// .active {
+//     background-color: white;
+//     color: black !important;
+// }
+.nav li {
+    position: relative;
+}
+.nav-link {
+    transition-duration: 0s !important;
+}
+.nav li:hover a::before {
+    content: "";
+    position: absolute ;
+    right: 0;
+    top: 24px;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 40%;
+    box-shadow: 20px 20px 0 10px white;
+    pointer-events: none;
+    transition-duration: 0s;
+}
+.nav li:hover a::after {
+    content: "";
+    position: absolute ;
+    right: 0;
+    top: 24px;
+    left: 100px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 40%;
+    box-shadow: -20px 20px 0 10px white;
+    pointer-events: none;
+}

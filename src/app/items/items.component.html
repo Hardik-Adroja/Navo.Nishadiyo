@@ -97,7 +97,7 @@
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-warning" (click)="buttonPressed=false"><i class="bi bi-x-lg"></i></button>
   </div>
-  <h4 class="mb-4 text-light col">Apni Detail Dal Varna Kat Dalunga:</h4>
+  <h4 class="mb-4 text-dark col">Apni Detail Dal Varna Kat Dalunga:</h4>
 
   <div class="form-floating mb-3">
     <input type="text" class="form-control" id="floatingName" required placeholder="Chal Be Name likh" [(ngModel)]="newMember.name">
@@ -123,7 +123,7 @@
     <label for="floatingStatus">Jinda He Ke Tapak Gaya</label>
   </div>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <input class="btn btn-warning" type="submit" (click)="addNewMember()">
-      Welcome To Gang
+    <button class="btn btn-warning" type="submit" (click)="addNewMember()">
+      Welcome To Gang </button>
   </div>
 </form>
