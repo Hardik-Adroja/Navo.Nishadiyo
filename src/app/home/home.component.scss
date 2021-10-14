@@ -15,15 +15,22 @@ li {
     height: 100%;
     width: 100%;
     position: absolute;
-    border-radius: 50%;
-    transform: scaleX(-1);
-    right: -50%;
-    padding: 10px;
-    border: 1px solid black;
-    transition-duration: 1.5s;
+    border-radius: 10%;
+    right: 0%;
+    padding: 20px;
+    transition-duration: 0.5s;
+    animation: move 2s linear infinite;
 }
 .img-cont img:hover {
     right: 0%;
-    border: 2px solid rgb(252, 252, 250);
-    padding: 1px;
+    transform: scale(1.2);
+    animation: none;
+    
+    
+}
+@keyframes move {
+    0% {transform: scale(1);
+        }
+    50% {transform: scale(1.2);
+        }
 }
