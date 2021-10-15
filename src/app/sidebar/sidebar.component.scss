@@ -1,7 +1,7 @@
 .sidebar {
   height: 100vh;
   background: #212529;
-  margin-top: 50px;
+  // margin-top: 50px;
   width: 200px;
   position: fixed;
   top: 0;
@@ -10,7 +10,7 @@
   display: block;
   z-index: 100;
 ul {
-    margin-top: 30px;
+    margin-top: 50px;
 }
   li {
     font-size: 15px;
@@ -25,9 +25,9 @@ ul {
 
     a {
       color: #fff;
-      padding: 15px 15px;
+      padding: 15px 25px;
       transition-duration: 0.5s;
-      font-family: var(--bs-font-monospace);
+      // font-family: var(--bs-font-monospace);
 
       &:hover {
         color: black;
@@ -43,4 +43,13 @@ ul {
     }
   }
  
+}
+.logo {
+  position: relative;
+}
+.logo img {
+  position: absolute;
+  width: 100%;
+  filter: invert(1);
+  left: -5px;
 }

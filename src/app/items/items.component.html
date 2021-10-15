@@ -86,7 +86,7 @@
           <td>{{item.dhandha}}</td>
           <td>{{item.owner}}</td>
           <td>{{item.status}}</td>
-          <td class="text-center" (click)="katDal(item.id)"><i class="bi bi-scissors"></i></td>
+          <td class="text-center" ><i class="bi bi-scissors" style="cursor: pointer;" (click)="katDal(item.id)"></i></td>
         </tr>
       </tbody>
     </table>
@@ -157,8 +157,8 @@
     </select>
     <label for="floatingStatus">Jinda He Ke Tapak Gaya</label>
   </div>
-  <button class="btn btn-warning" type="submit" [disabled]="!newClients.valid">
-    Welcome To Gang </button>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-warning" type="submit" [disabled]="!newClients.valid">
+      Welcome To Gang </button>
   </div>
 </form>
