@@ -1,6 +1,7 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -15,6 +16,14 @@ export class ItemsComponent implements OnInit {
   buttonPressed = false;
   ungli = "";
   clientsCopy:any = [];
+  newClients:any = this.fb.group({
+    id: [(Math.random() * 10), Validators.required],
+    name: ['', Validators.required],
+    thikana: ['', Validators.required],
+    dhandha: ['', Validators.required],
+    owner: ['', Validators.required],
+    status: ['', Validators.required],
+  })
   
   clients = [
     {
@@ -83,7 +92,7 @@ export class ItemsComponent implements OnInit {
     status: ""
   };
 
-  constructor(private primengConfig: PrimeNGConfig) { }
+  constructor(private primengConfig: PrimeNGConfig, private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -92,38 +101,38 @@ export class ItemsComponent implements OnInit {
   }
   katDal(id: any) {
     console.log(id)
-    const bhiduIndex = this.clients.findIndex(bhidu => bhidu.id === id);
+    const bhiduIndex = this.clients.findIndex((nakama:any) => nakama.id === id);
     console.log(bhiduIndex)
     this.clients.splice(bhiduIndex, 1);
   }
 
-  randomDhandha() {
-    const months = ["Dakaiti", "Murder", "Lafda", "Panga", "Chindi Chori", "Jasoosi", "Hawa Baji"];
+  // randomDhandha() {
+  //   const months = ["Dakaiti", "Murder", "Lafda", "Panga", "Chindi Chori", "Jasoosi", "Hawa Baji"];
 
-    const random = Math.floor(Math.random() * months.length);
-    return months[random];
-  }
-  randomName() {
-    const months = ["Dhiru Khoto", "Phocho Dhilo", "Halko bhuto", "Chhota Lungi", "Kallu Kania", "Tillo Katri", "Mannu Mavo"];
+  //   const random = Math.floor(Math.random() * months.length);
+  //   return months[random];
+  // }
+  // randomName() {
+  //   const months = ["Dhiru Khoto", "Phocho Dhilo", "Halko bhuto", "Chhota Lungi", "Kallu Kania", "Tillo Katri", "Mannu Mavo"];
 
-    const random = Math.floor(Math.random() * months.length);
-    return months[random];
-  }
-  randomThikana() {
-    const months = ["Under Ground", "Dharavi", "Aamchi Mumbai", "Mirzapur", "Mandva", "Kali Ghodi"];
+  //   const random = Math.floor(Math.random() * months.length);
+  //   return months[random];
+  // }
+  // randomThikana() {
+  //   const months = ["Under Ground", "Dharavi", "Aamchi Mumbai", "Mirzapur", "Mandva", "Kali Ghodi"];
 
-    const random = Math.floor(Math.random() * months.length);
-    return months[random];
-  }
-  randomOwner() {
-    const months = ["Modi Madari", "Amit Shana", "Rahul Gaddha", "Keju Jadu", "Didi Thakeli", "Viju Frenchi"];
+  //   const random = Math.floor(Math.random() * months.length);
+  //   return months[random];
+  // }
+  // randomOwner() {
+  //   const months = ["Modi Madari", "Amit Shana", "Rahul Gaddha", "Keju Jadu", "Didi Thakeli", "Viju Frenchi"];
 
-    const random = Math.floor(Math.random() * months.length);
-    return months[random];
-  }
+  //   const random = Math.floor(Math.random() * months.length);
+  //   return months[random];
+  // }
 
   addBhidu() {
-    this.buttonPressed = true
+    this.buttonPressed = true;
     // let newBhidu =
     // {
     //   id: Math.random(),
@@ -135,10 +144,10 @@ export class ItemsComponent implements OnInit {
     // };
     // this.clients.push(newBhidu);
   }
-  addNewMember() {
-    this.clients.push(this.newMember);
-    this.buttonPressed = false
-  }
+  // addNewMember():void {
+  //   console.log(this.newMember)
+  //   this.buttonPressed = false;
+  // }
   findBhidu() {
     console.log(this.ungli);
     this.clients = this.clientsCopy.filter((bhidu:any)=>bhidu.name.toUpperCase().includes(this.ungli.toUpperCase())
@@ -148,6 +157,11 @@ export class ItemsComponent implements OnInit {
     || bhidu.status.toUpperCase().includes(this.ungli.toUpperCase())
     )
 
+  }
+  newClientsAdd () {
+    // console.log(this.newClients.value);
+    this.buttonPressed = false;
+    this.clients.push(this.newClients.value)
   }
 
 }

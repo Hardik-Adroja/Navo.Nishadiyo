@@ -19,6 +19,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import {AccordionModule} from 'primeng/accordion';
 import {FieldsetModule} from 'primeng/fieldset';
 import {TableModule} from 'primeng/table';
+import { TrialComponent } from './trial/trial.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import {TableModule} from 'primeng/table';
     DashboardComponent,
     ServiceComponent,
     FindComponent,
-    ReportComponent
+    ReportComponent,
+    TrialComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
