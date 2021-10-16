@@ -9,29 +9,28 @@
   color: #fff;
   display: block;
   z-index: 100;
-ul {
+
+  ul {
     margin-top: 50px;
-}
+  }
+
   li {
     font-size: 15px;
     display: block;
-
     cursor: pointer;
     transition-duration: 0.5s;
-
-    i {
-      margin-right: 8px;
-    }
 
     a {
       color: #fff;
       padding: 15px 25px;
-      transition-duration: 0.5s;
+      transition-duration: 0s !important;
       // font-family: var(--bs-font-monospace);
 
-      &:hover {
+      &:hover,
+      .active {
         color: black;
         background-color: white;
+        border-radius: 10px;
       }
     }
 
@@ -42,18 +41,54 @@ ul {
       border-left: 4px solid #ff0000;
     }
   }
- 
+
 }
+
 .logo {
   position: relative;
 }
+
 .logo img {
   position: absolute;
   width: 100%;
   filter: invert(1);
   left: -5px;
 }
+
 .active {
   color: black !important;
   background-color: white;
+  position: relative;
+  border-radius: 10px;
+}
+
+
+
+li a {
+  position: relative;
+  height: 50px;
+}
+
+li:hover a::before, .active::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  right: 0px;
+  top: 50px;
+  border-radius: 50%;
+  box-shadow: 15px -15px 0 0px white;
+}
+
+li:hover a::after, .active::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  right: 0px;
+  top: -30px;
+  border-radius: 50%;
+  box-shadow: 15px 15px 0 0px white;
 }
