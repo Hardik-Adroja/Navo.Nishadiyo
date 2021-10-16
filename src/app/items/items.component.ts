@@ -15,8 +15,8 @@ export class ItemsComponent implements OnInit {
   isCollapsed4 = true;
   buttonPressed = false;
   ungli = "";
-  clientsCopy:any = [];
-  newClients:any = this.fb.group({
+  clientsCopy: any = [];
+  newClients: any = this.fb.group({
     id: [(Math.random() * 10), Validators.required],
     name: ['', Validators.required],
     thikana: ['', Validators.required],
@@ -24,75 +24,84 @@ export class ItemsComponent implements OnInit {
     owner: ['', Validators.required],
     status: ['', Validators.required],
   })
-  
-  clients = [
-    {
-      id: 1,
-      name: 'Bhikho Batli',
-      thikana: "India",
-      dhandha: "Secret",
-      owner: "Bhikho",
-      status: "Jinda"
-    },
-    {
-      id: 2,
-      name: 'Babu Chapri',
-      thikana: "UAE",
-      dhandha: "Apna Adda",
-      owner: "Babu Bhai",
-      status: "Jinda"
-    },
-    {
-      id: 3,
-      name: 'Salim kana',
-      thikana: "Narak",
-      dhandha: "Garam Oil",
-      owner: "Yamraj",
-      status: "Murda"
-    },
-    {
-      id: 7,
-      name: 'Chaman Langda',
-      thikana: "USA",
-      dhandha: "Hawala",
-      owner: "Trumpwa",
-      status: "Jinda"
-    },
-    {
-      id: 100,
-      name: 'Usman Choti',
-      thikana: "Mexico",
-      dhandha: "Ganja",
-      owner: "Pablo",
-      status: "Jinda"
-    },
-    {
-      id: 23,
-      name: 'Bobda Dada',
-      thikana: "Sri Lanka",
-      dhandha: "Wasooli",
-      owner: "Takkkar",
-      status: "Jinda"
-    },
-    {
-      id: 65,
-      name: 'Khali Bheja',
-      thikana: "China",
-      dhandha: "Kuch Bhi",
-      owner: "Jinglo",
-      status: "Jinda"
-    }
-  ];
-  newMember: any = {
-    id: (Math.random() * 10),
-    name: '',
-    thikana: "",
-    dhandha: "",
-    owner: "",
-    status: ""
-  };
+  clients: any = [];
+  localClients: any = "";
+  // clients = [
+  //   {
+  //     id: 1,
+  //     name: 'Bhikho Batli',
+  //     thikana: "India",
+  //     dhandha: "Secret",
+  //     owner: "Bhikho",
+  //     status: "Jinda"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Babu Chapri',
+  //     thikana: "UAE",
+  //     dhandha: "Apna Adda",
+  //     owner: "Babu Bhai",
+  //     status: "Jinda"
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Salim kana',
+  //     thikana: "Narak",
+  //     dhandha: "Garam Oil",
+  //     owner: "Yamraj",
+  //     status: "Murda"
+  //   },
+  //   {
+  //     id: 7,
+  //     name: 'Chaman Langda',
+  //     thikana: "USA",
+  //     dhandha: "Hawala",
+  //     owner: "Trumpwa",
+  //     status: "Jinda"
+  //   },
+  //   {
+  //     id: 100,
+  //     name: 'Usman Choti',
+  //     thikana: "Mexico",
+  //     dhandha: "Ganja",
+  //     owner: "Pablo",
+  //     status: "Jinda"
+  //   },
+  //   {
+  //     id: 23,
+  //     name: 'Bobda Dada',
+  //     thikana: "Sri Lanka",
+  //     dhandha: "Wasooli",
+  //     owner: "Takkkar",
+  //     status: "Jinda"
+  //   },
+  //   {
+  //     id: 65,
+  //     name: 'Khali Bheja',
+  //     thikana: "China",
+  //     dhandha: "Kuch Bhi",
+  //     owner: "Jinglo",
+  //     status: "Jinda"
+  //   }
+  // ];
+  // newMember: any = {
+  //   id: (Math.random() * 10),
+  //   name: '',
+  //   thikana: "",
+  //   dhandha: "",
+  //   owner: "",
+  //   status: ""
+  // };
 
-  constructor(private primengConfig: PrimeNGConfig, private fb:FormBuilder) { }
+  constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder) {
+    this.localClients = localStorage.getItem("clients");
+    if (this.localClients == null) {
+      this.localClients = [];
+    }
+    else {
+      this.clients = JSON.parse(this.localClients);
+    }
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -101,9 +110,10 @@ export class ItemsComponent implements OnInit {
   }
   katDal(id: any) {
     console.log(id)
-    const bhiduIndex = this.clients.findIndex((nakama:any) => nakama.id === id);
+    const bhiduIndex = this.clients.findIndex((nakama: any) => nakama.id === id);
     console.log(bhiduIndex)
     this.clients.splice(bhiduIndex, 1);
+    localStorage.setItem("clients", JSON.stringify(this.clients))
   }
 
   // randomDhandha() {
@@ -150,18 +160,19 @@ export class ItemsComponent implements OnInit {
   // }
   findBhidu() {
     console.log(this.ungli);
-    this.clients = this.clientsCopy.filter((bhidu:any)=>bhidu.name.toUpperCase().includes(this.ungli.toUpperCase())
-    || bhidu.thikana.toUpperCase().includes(this.ungli.toUpperCase())
-    || bhidu.dhandha.toUpperCase().includes(this.ungli.toUpperCase())
-    || bhidu.owner.toUpperCase().includes(this.ungli.toUpperCase())
-    || bhidu.status.toUpperCase().includes(this.ungli.toUpperCase())
+    this.clients = this.clientsCopy.filter((bhidu: any) => bhidu.name.toUpperCase().includes(this.ungli.toUpperCase())
+      || bhidu.thikana.toUpperCase().includes(this.ungli.toUpperCase())
+      || bhidu.dhandha.toUpperCase().includes(this.ungli.toUpperCase())
+      || bhidu.owner.toUpperCase().includes(this.ungli.toUpperCase())
+      || bhidu.status.toUpperCase().includes(this.ungli.toUpperCase())
     )
 
   }
-  newClientsAdd () {
+  newClientsAdd() {
     // console.log(this.newClients.value);
     this.buttonPressed = false;
-    this.clients.push(this.newClients.value)
+    this.clients.push(this.newClients.value);
+    localStorage.setItem("clients", JSON.stringify(this.clients))
   }
 
 }
