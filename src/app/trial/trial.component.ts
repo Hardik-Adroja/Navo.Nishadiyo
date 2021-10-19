@@ -8,6 +8,8 @@ import { TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
   styleUrls: ['./trial.component.scss']
 })
 export class TrialComponent implements OnInit {
+  trialData = "My Name Is Trial Data";
+
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
  
   selectTab(tabId: number) {

@@ -1,3 +1,4 @@
+import { UtilService } from './common/util.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -25,7 +26,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 //       },1000)
 //     }
 //   }
-  
+
 
 
 //   ngOnInit() {
@@ -46,12 +47,24 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 //   //   alert("Get Off")
 //   }
 
-  
+
 // }
 export class AppComponent {
   message = 'I\'m read only!';
   canEdit = true;
- 
+  isDisplay = false;
+
+  constructor(private utilService: UtilService) {
+    this.utilService.isDisplaySideBar.subscribe((res) => {
+      if(res) {
+        this.isDisplay = true;
+      }
+      else {
+        this.isDisplay = false;
+      }
+    })
+  };
+
   onEditClick() {
     this.canEdit = !this.canEdit;
     if (this.canEdit) {

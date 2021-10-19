@@ -27,7 +27,7 @@
       // font-family: var(--bs-font-monospace);
 
       &:hover,
-      .active {
+      .active:not(last-child) {
         color: black;
         background-color: white;
         border-top-left-radius: 10px;
@@ -37,7 +37,7 @@
 
 
 
-    &.active {
+    &.active:not(last-child) {
       background: #4269a8;
       border-left: 4px solid #ff0000;
     }
@@ -56,7 +56,7 @@
   left: -5px;
 }
 
-.active {
+.active:not(last-child) {
   color: black !important;
   background-color: white;
   position: relative;
@@ -71,8 +71,8 @@ li a {
   height: 50px;
 }
 
-li:hover a::before,
-.active::before {
+ul nav-item:hover a::before,
+.active::before:not(last-child) {
   content: "";
   position: absolute;
   width: 30px;
@@ -84,8 +84,8 @@ li:hover a::before,
   box-shadow: 15px -15px 0 0px white;
 }
 
-li:hover a::after,
-.active::after {
+ul nav-item:hover a::after,
+.active::after:not(last-child) {
   content: "";
   position: absolute;
   width: 30px;

@@ -25,6 +25,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { Trial01Component } from './trial/trial01/trial01.component';
 import { Trial02Component } from './trial/trial02/trial02.component';
 import { Trial03Component } from './trial/trial03/trial03.component';
+import { LoginComponent } from './login/login.component';
+import { AuthguardService } from './auth/authguard.service';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import { Trial03Component } from './trial/trial03/trial03.component';
     Trial01Component,
     Trial02Component,
     Trial03Component,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,10 +61,11 @@ import { Trial03Component } from './trial/trial03/trial03.component';
     AccordionModule,
     FieldsetModule,
     TableModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ToastModule
 
   ],
-  providers: [],
+  providers: [AuthguardService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
