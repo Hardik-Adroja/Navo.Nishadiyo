@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-trial',
@@ -7,10 +8,14 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./trial.component.scss']
 })
 export class TrialComponent implements OnInit {
-  newBhidu = this.fb.group({
-  name : ['', Validators.required],
-  number : [''],
-  })
+  @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
+ 
+  selectTab(tabId: number) {
+    if (this.staticTabs?.tabs[tabId]) {
+      this.staticTabs.tabs[tabId].active = true;
+    }
+  }
+  
 
   constructor(private fb: FormBuilder) { }
 
@@ -18,7 +23,7 @@ export class TrialComponent implements OnInit {
    
   }
   onSubmit() {
-    console.warn(this.newBhidu.value);
+    
   }
   
   

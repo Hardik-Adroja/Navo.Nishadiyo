@@ -21,6 +21,10 @@ import {FieldsetModule} from 'primeng/fieldset';
 import {TableModule} from 'primeng/table';
 import { TrialComponent } from './trial/trial.component';
 import { ContactComponent } from './contact/contact.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { Trial01Component } from './trial/trial01/trial01.component';
+import { Trial02Component } from './trial/trial02/trial02.component';
+import { Trial03Component } from './trial/trial03/trial03.component';
 
 
 @NgModule({
@@ -36,7 +40,10 @@ import { ContactComponent } from './contact/contact.component';
     FindComponent,
     ReportComponent,
     TrialComponent,
-    ContactComponent
+    ContactComponent,
+    Trial01Component,
+    Trial02Component,
+    Trial03Component,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,8 @@ import { ContactComponent } from './contact/contact.component';
     CollapseModule.forRoot(),
     AccordionModule,
     FieldsetModule,
-    TableModule
+    TableModule,
+    TabsModule.forRoot()
 
   ],
   providers: [],

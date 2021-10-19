@@ -1,17 +1,15 @@
 <div class="main-content-box">
-  <div class="row text-center">
-    <div class="col-3 mx-auto">
-      <form [formGroup]="newBhidu" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" type="text" formControlName ="name" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label for="number">number</label>
-          <input id="number" type="number" formControlName ="number" class="form-control" >
-        </div>
-        <button type="submit" [disabled]="!newBhidu.valid" class="btn btn-warning">Submit</button>
-      </form>
-    </div>
+  <div>
+    <tabset>
+      <tab heading="Contact Us" id="tab1">
+        <app-trial01></app-trial01>
+      </tab>
+      <tab heading="Support">
+        <app-trial02></app-trial02>
+      </tab>
+      <tab heading="Advice">
+        <app-trial03></app-trial03>
+      </tab>
+    </tabset>
   </div>
 </div>
