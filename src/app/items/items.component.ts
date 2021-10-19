@@ -1,7 +1,7 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-items',
@@ -16,14 +16,15 @@ export class ItemsComponent implements OnInit {
   buttonPressed = false;
   ungli = "";
   clientsCopy: any = [];
-  newClients: any = this.fb.group({
-    id: [(Math.random() * 10), Validators.required],
-    name: ['', Validators.required],
-    thikana: ['', Validators.required],
-    dhandha: ['', Validators.required],
-    owner: ['', Validators.required],
-    status: ['', Validators.required],
+  newClients: any = new FormGroup({
+    id: new FormControl(Math.random() * 10, [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    thikana: new FormControl('', [Validators.required]),
+    dhandha: new FormControl('', [Validators.required]),
+    owner: new FormControl('', [Validators.required]),
+    status: new FormControl('', [Validators.required]),
   })
+  newClientsCopy: any = [];
   clients: any = [];
   localClients: any = "";
   // clients = [
@@ -106,6 +107,7 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.clientsCopy = this.clients;
+    this.newClientsCopy = this.newClients
 
   }
   katDal(id: any) {
@@ -169,10 +171,17 @@ export class ItemsComponent implements OnInit {
 
   }
   newClientsAdd() {
-    // console.log(this.newClients.value);
-    this.buttonPressed = false;
-    this.clients.push(this.newClients.value);
-    localStorage.setItem("clients", JSON.stringify(this.clients))
+    if (this.newClients.valid) {
+
+      console.log(this.newClients);
+      this.clients.push(this.newClients.value);
+      localStorage.setItem("clients", JSON.stringify(this.clients));
+      this.newClients.reset();
+      this.newClients.controls['id'].setValue(Math.random() * 10)
+      this.buttonPressed = false;
+    }
   }
 
 }
+
+
