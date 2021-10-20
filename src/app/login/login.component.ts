@@ -31,5 +31,8 @@ export class LoginComponent implements OnInit {
     }
 
   }
+  onSignup() {
+
+  }
 
 }
