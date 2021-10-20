@@ -1,3 +1,10 @@
 <div class="container mt-4">
-    <p>trial02 works!</p>
+    <div>Find the area of "CIRCLE"</div>
+    <div>
+        <label for="radius">Enter Radius:</label>
+        <input type="text" class="form-control" id="msg" [(ngModel)]="msgNew" aria-describedby="msg"
+            placeholder="Please Enter msg">
+    </div>
+    <button (click)= "sendMsg()">Calculate Area</button>
+    <div>{{msg}}</div>
 </div>

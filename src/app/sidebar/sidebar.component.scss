@@ -71,8 +71,8 @@ li a {
   height: 50px;
 }
 
-ul nav-item:hover a::before,
-.active::before:not(last-child) {
+ul li:hover a::before,
+.active::before {
   content: "";
   position: absolute;
   width: 30px;
@@ -84,8 +84,8 @@ ul nav-item:hover a::before,
   box-shadow: 15px -15px 0 0px white;
 }
 
-ul nav-item:hover a::after,
-.active::after:not(last-child) {
+ul li:hover a::after,
+.active::after {
   content: "";
   position: absolute;
   width: 30px;

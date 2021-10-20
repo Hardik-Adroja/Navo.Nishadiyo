@@ -1,13 +1,14 @@
 <div class="main-content-box">
+  <div>Area of Circle = <Span>{{msg}}</Span></div>
   <div>
     <tabset>
-      <tab heading="Contact Us" id="tab1">
+      <tab heading="Trial 1" id="tab1">
         <app-trial01 [trial01Data]="trialData"></app-trial01>
       </tab>
-      <tab heading="Support">
-        <app-trial02></app-trial02>
+      <tab heading="Trial 2">
+        <app-trial02 (sendMsgEvent)="receiveMsg($event)"></app-trial02>
       </tab>
-      <tab heading="Advice">
+      <tab heading="Trial 3">
         <app-trial03></app-trial03>
       </tab>
     </tabset>
