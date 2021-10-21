@@ -10,6 +10,9 @@ import { TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
 export class TrialComponent implements OnInit {
   trialData = "My Name Is Trial Data";
   msg:string = "";
+  feedbackList:any = [];
+  newFeedbackList:any;
+  feedbackListNumber = 0;
 
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
  
@@ -18,9 +21,13 @@ export class TrialComponent implements OnInit {
       this.staticTabs.tabs[tabId].active = true;
     }
   }
-  receiveMsg($event:any) {
-    this.msg = $event
-    console.log(this.msg)
+  
+  receiveFeedbackList($event:any) {
+    this.feedbackList = $event;
+    this.feedbackListNumber = this.feedbackList.length;
+  }
+  receiveNewFeedbackList($event:any) {
+    this.newFeedbackList = $event;
   }
 
   constructor(private fb: FormBuilder) { }
@@ -28,8 +35,8 @@ export class TrialComponent implements OnInit {
   ngOnInit(): void {
    
   }
-  onSubmit() {
-    
+  trial() {
+    console.log(this.newFeedbackList)
   }
   
   

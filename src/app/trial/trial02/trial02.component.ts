@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-trial02',
@@ -7,17 +7,33 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class Trial02Component implements OnInit {
 
-  msgNew="";
-  msg:string="Kam Kar Raha He";
-  @Output() sendMsgEvent = new EventEmitter<string>();
+  actionWindow = false;
+  index:any;
+  responce:any;
+  actionCatagory:any;
 
-  sendMsg() {
-    this.sendMsgEvent.emit(this.msg);
-  }
+  
+  @Input() childFeebackList:any;
+  @Output() sendChildFeebackList = new EventEmitter<any>();
+
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
+ takeAction(feId:any) {
+  this.index = this.childFeebackList.findIndex((feed:any)=>feed.feId===feId);
+  console.log(this.index)
+  this.actionWindow = true;
+ }
+ actionTaken(){
+  this.actionWindow = false;
+  this.childFeebackList[this.index].feResponce = this.responce;
+  this.childFeebackList[this.index].feStatus = this.actionCatagory;
+  console.log(this.childFeebackList)
+  this.sendChildFeebackList.emit(this.childFeebackList);
+
+ }
 }

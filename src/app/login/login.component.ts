@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
     else {
       this.messageService.add({ severity: 'error', key: "tc", summary: 'Error', detail: 'Please enter valid input' });
       this.utilService.isDisplaySideBar.next(false)
+      this.warning = true;
     }
 
   }
@@ -76,6 +77,7 @@ export class LoginComponent implements OnInit {
 
   onSignup() {
     this.signupWindow = true;
+    this.warning = false;
 
   }
 }

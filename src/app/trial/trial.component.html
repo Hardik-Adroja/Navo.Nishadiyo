@@ -1,15 +1,21 @@
 <div class="main-content-box">
-  <div>Area of Circle = <Span>{{msg}}</Span></div>
+  <div class="row mb-3">
+    <div class="col">Feedback Management</div> 
+    <div class="col">{{feedbackListNumber}}</div>
+    <div class="col"></div>
+    <!-- <button (click)="trial()"></button> -->
+  </div>
+  <!-- <div>Area of Circle = <Span>{{msg}}</Span></div> -->
   <div>
     <tabset>
-      <tab heading="Trial 1" id="tab1">
-        <app-trial01 [trial01Data]="trialData"></app-trial01>
+      <tab heading="Feedback" id="tab1">
+        <app-trial01 (sendFeedbackList)="receiveFeedbackList($event)"></app-trial01>
       </tab>
-      <tab heading="Trial 2">
-        <app-trial02 (sendMsgEvent)="receiveMsg($event)"></app-trial02>
+      <tab heading="Action">
+        <app-trial02 [childFeebackList]="feedbackList" (sendChildFeebackList)="receiveNewFeedbackList($event)" ></app-trial02>
       </tab>
-      <tab heading="Trial 3">
-        <app-trial03></app-trial03>
+      <tab heading="Status">
+        <app-trial03 [finalFeebackList]="newFeedbackList"></app-trial03>
       </tab>
     </tabset>
   </div>

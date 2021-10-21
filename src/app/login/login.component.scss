@@ -1,0 +1,9 @@
+.row img {
+    margin: 0px;
+    padding: 0px;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    mix-blend-mode: multiply;
+}
