@@ -11,10 +11,10 @@ export class ItemService {
   constructor(private http:HttpClient) { }
 
   getItemList(){
-    return this.http.get(`${this.url}a3a7d438-7597-4de6-85c2-d7468dc61f62`);
+    return this.http.get(`${this.url}a68dddfb-9b88-41b0-b344-b1925f6aeafb`);
   }
 
   addItemInList(data:any){
-    return this.http.put(`${this.url}a3a7d438-7597-4de6-85c2-d7468dc61f62?apiKey=c6bd2bff-94ef-41da-a868-c458fb395c93`,data)
+    return this.http.put(`${this.url}a68dddfb-9b88-41b0-b344-b1925f6aeafb?apiKey=b5b493ca-86a1-47b5-ad0a-b5dd665960d7`,data)
   }
 }
