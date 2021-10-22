@@ -29,6 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthguardService } from './auth/authguard.service';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { MessageService } from 'primeng/api';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     CommonModule,
@@ -62,7 +64,8 @@ import { MessageService } from 'primeng/api';
     FieldsetModule,
     TableModule,
     TabsModule.forRoot(),
-    ToastModule
+    ToastModule,
+    
 
   ],
   providers: [AuthguardService, MessageService],
