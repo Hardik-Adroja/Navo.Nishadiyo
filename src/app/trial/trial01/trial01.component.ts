@@ -17,14 +17,14 @@ export class Trial01Component implements OnInit {
     feText: ['aaaaaaaaa', Validators.required],
     feTypeOf: ["suggestion", Validators.required],
     feResponce: [''],
-    feStatus: ['']
+    feStatus: [null]
   });
 
   @Input() trial01Data: string = "";
   @Output() sendFeedbackList = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
-    feedbackList:[]
+    
     // this.feedListout = localStorage.getItem("feedList");
     // this.feedbackList = JSON.parse(this.feedListout) || [];
    }
@@ -33,7 +33,10 @@ export class Trial01Component implements OnInit {
   }
   feebackLoged() {
     this.feedbackList.push(this.feedback.value);
+    console.log(this.feedbackList)
     this.sendFeedbackList.emit(this.feedbackList);
+    this.feedback.reset();
+    this.feedback.controls["feId"].setValue(Math.random());
     // localStorage.setItem("feedList",JSON.stringify(this.feedbackList))
     // this.feedback.reset();
 

@@ -3,7 +3,7 @@
 .main-content-box{
     margin-top: 60px;
     margin-left: 200px;
-    width: calc(100%-200px);
+    width: calc(100%-200px) !important;
 }
 body {
     // font-family: var(--bs-font-monospace) !important;

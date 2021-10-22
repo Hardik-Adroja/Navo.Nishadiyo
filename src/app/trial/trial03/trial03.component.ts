@@ -7,7 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class Trial03Component implements OnInit {
 
-  @Input() finalFeebackList:any
+  displayCatagory: any;
+  filteredFeedbackList: any;
+
+
+  @Input() finalFeebackList: any;
+
 
   constructor() { }
 
@@ -15,6 +20,17 @@ export class Trial03Component implements OnInit {
   }
   trial() {
     console.log(this.finalFeebackList)
+    if(this.displayCatagory){
+      this.filteredFeedbackList = this.finalFeebackList.filter((select: any) => `${select.feStatus}1` === this.displayCatagory)
+    }
+    else{
+      this.filteredFeedbackList = this.finalFeebackList.filter((select: any) => select.feResponce !== null &&  select.feResponce !== "")
+    }
   }
-
+  trial1() {
+    this.displayCatagory = "all"
+    this.filteredFeedbackList = this.finalFeebackList.filter((select: any) => select.feResponce !== null &&  select.feResponce !== "")
+    
+  }
+  
 }

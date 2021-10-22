@@ -1,4 +1,42 @@
-<div class="container mt-4">
-    <p>trial03 works!</p>
-    <button (click)="trial()">Trial</button>
+<div class="container row mt-4">
+  <div class="form-check col-1">
+    <input class="form-check-input" type="radio" id="radios1" [(ngModel)]="displayCatagory" (change)= "trial()" value="clear1" >
+    <label class="form-check-label" for="radios1">Clear</label>
+  </div>
+  <div class="form-check col-1">
+    <input class="form-check-input" type="radio" id="radios2" [(ngModel)]="displayCatagory" (change)= "trial()" value="hold1">
+    <label class="form-check-label" for="radios2">Hold</label>
+  </div>
+  <div class="form-check col-1">
+    <input class="form-check-input" type="radio" id="radios3" [(ngModel)]="displayCatagory" (change)= "trial()" value="reject1">
+    <label class="form-check-label" for="radios3">Reject</label>
+  </div>
+  <div class="form-check col-1">
+    <input class="form-check-input" type="radio" id="radios4" [(ngModel)]="displayCatagory" (change)= "trial1()" value="all">
+    <label class="form-check-label" for="radios4">All</label>
+  </div>
+  
 </div>
+
+<div class="container mt-5">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Feedback Type</th>
+          <th scope="col">Feedback</th>
+          <th scope="col">Responce</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredFeedbackList">
+          <td>{{item.feName}}</td>
+          <td>{{item.feEmail}}</td>
+          <td>{{item.feTypeOf}}</td>
+          <td>{{item.feText}}</td>
+          <td>{{item.feResponce}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
