@@ -10,6 +10,7 @@ export class Trial01Component implements OnInit {
 
   feedbackList:any = [];
   feedListout:any;
+
   feedback = this.fb.group({
     feId: [Math.random()],
     feName: ['aaa', Validators.required],
@@ -20,26 +21,20 @@ export class Trial01Component implements OnInit {
     feStatus: [null]
   });
 
-  @Input() trial01Data: string = "";
   @Output() sendFeedbackList = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
-    
-    // this.feedListout = localStorage.getItem("feedList");
-    // this.feedbackList = JSON.parse(this.feedListout) || [];
+
    }
 
   ngOnInit(): void {
   }
+
   feebackLoged() {
     this.feedbackList.push(this.feedback.value);
-    console.log(this.feedbackList)
     this.sendFeedbackList.emit(this.feedbackList);
     this.feedback.reset();
     this.feedback.controls["feId"].setValue(Math.random());
-    // localStorage.setItem("feedList",JSON.stringify(this.feedbackList))
-    // this.feedback.reset();
-
   }
 
 }

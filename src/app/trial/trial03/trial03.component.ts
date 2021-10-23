@@ -19,12 +19,11 @@ export class Trial03Component implements OnInit {
   ngOnInit(): void {
   }
   trial() {
-    console.log(this.finalFeebackList)
     if(this.displayCatagory){
-      this.filteredFeedbackList = this.finalFeebackList.filter((select: any) => `${select.feStatus}1` === this.displayCatagory)
+      this.filteredFeedbackList = this.finalFeebackList.filter((item: any) => `${item.feStatus}1` === this.displayCatagory)
     }
     else{
-      this.filteredFeedbackList = this.finalFeebackList.filter((select: any) => select.feResponce !== null &&  select.feResponce !== "")
+      this.filteredFeedbackList = this.finalFeebackList.filter((item: any) => item.feResponce !== null &&  item.feResponce !== "")
     }
   }
   trial1() {

@@ -3,17 +3,18 @@
     <div class="col-sm-3 px-3"><strong>Feedback Management</strong></div> 
     <div class="col-sm-3">Total Feedback: <strong> {{feedbackListNumber}}</strong></div>
     <div class="col-sm-3">Total Resolved: <strong> {{newFeedbackListNumber}}</strong></div>
-    <!-- <button (click)="trial()"></button> -->
   </div>
-  <!-- <div>Area of Circle = <Span>{{msg}}</Span></div> -->
+  
   <div>
     <tabset>
       <tab heading="Feedback" id="tab1">
         <app-trial01 (sendFeedbackList)="receiveFeedbackList($event)"></app-trial01>
       </tab>
+
       <tab heading="Action" (selectTab)="filterList($event)">
         <app-trial02 [childFeebackList]="feedbackList" (sendChildFeebackList)="receiveNewFeedbackList($event)" ></app-trial02>
       </tab>
+      
       <tab heading="Status" (selectTab)="changeTab($event)">
         <app-trial03 [finalFeebackList]="newFeedbackList"></app-trial03>
       </tab>

@@ -10,8 +10,7 @@ import { Trial03Component } from './trial03/trial03.component';
   styleUrls: ['./trial.component.scss']
 })
 export class TrialComponent implements OnInit {
-  trialData = "My Name Is Trial Data";
-  msg: string = "";
+  
   feedbackList: any;
   newFeedbackList: any;
   feedbackListNumber = 0;
@@ -31,9 +30,10 @@ export class TrialComponent implements OnInit {
     this.feedbackList = event;
     this.feedbackListNumber = this.feedbackList.length;
   }
+
   receiveNewFeedbackList(event: any) {
     this.newFeedbackList = event;
-    this.newFeedbackListNumber = this.newFeedbackList.filter((select: any) => select.feResponce !== null &&  select.feResponce !== "").length;
+    this.newFeedbackListNumber = this.newFeedbackList.filter((item: any) => item.feResponce !== null &&  item.feResponce !== "").length;
   }
   changeTab(event: any) {
     this.trial03component?.trial1()

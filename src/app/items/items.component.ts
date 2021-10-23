@@ -33,25 +33,21 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    
+
     this.itemService.getItemList().subscribe((res) => {
       this.clients = res;
       this.clientsCopy = this.clients;
     },
-    (err) => {
-      
-    });
-    
+      (err) => {
 
-
+      });
   }
+
   katDal(id: any) {
     const bhiduIndex = this.clients.findIndex((nakama: any) => nakama.id === id);
     this.clients.splice(bhiduIndex, 1);
     this.itemService.addItemInList(this.clients).subscribe((res) => { }, (err) => { })
   }
-
-
 
   addBhidu() {
     this.buttonPressed = true;
@@ -65,8 +61,8 @@ export class ItemsComponent implements OnInit {
       || bhidu.owner.toUpperCase().includes(this.ungli.toUpperCase())
       || bhidu.status.toUpperCase().includes(this.ungli.toUpperCase())
     )
-
   }
+
   newClientsAdd() {
     if (this.newClients.valid) {
 
@@ -75,7 +71,6 @@ export class ItemsComponent implements OnInit {
       this.newClients.reset();
       this.newClients.controls['id'].setValue(Math.random() * 10)
       this.buttonPressed = false;
-
     }
   }
 
