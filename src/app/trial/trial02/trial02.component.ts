@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { TrialPService } from 'src/app/Services/trial/trial-p.service';
 
 @Component({
   selector: 'app-trial02',
@@ -11,16 +12,19 @@ export class Trial02Component implements OnInit {
   index: any;
   responce: any;
   actionCatagory: any;
-  displayFeedbackList:any;
+  displayFeedbackList: any;
 
 
   @Input() childFeebackList: any;
   @Output() sendChildFeebackList = new EventEmitter<any>();
 
 
-  constructor() { }
+  constructor(private trialPService: TrialPService) { }
 
   ngOnInit(): void {
+    this.trialPService.getItemList().subscribe((res) => { 
+      this.childFeebackList = res
+    },(res)=>{}) //Added New
 
   }
 
@@ -33,9 +37,11 @@ export class Trial02Component implements OnInit {
     this.childFeebackList[this.index].feResponce = this.responce;
     this.childFeebackList[this.index].feStatus = this.actionCatagory;
     this.displayFeedbackList = this.childFeebackList.filter((item: any) => item.feStatus === "" || item.feStatus === null)
+    this.trialPService.addItemList(this.childFeebackList).subscribe(()=>{},()=>{}) //Added New
     this.sendChildFeebackList.emit(this.childFeebackList);
   }
   filter() {
+    console.log(this.childFeebackList)
     this.displayFeedbackList = this.childFeebackList.filter((feed: any) => feed.feStatus === "" || feed.feStatus === null)
   }
 }

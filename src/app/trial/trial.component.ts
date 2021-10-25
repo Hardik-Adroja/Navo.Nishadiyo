@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
+import { TrialPService } from '../Services/trial/trial-p.service';
 import { Trial02Component } from './trial02/trial02.component';
 import { Trial03Component } from './trial03/trial03.component';
 
@@ -13,8 +14,8 @@ export class TrialComponent implements OnInit {
   
   feedbackList: any;
   newFeedbackList: any;
-  feedbackListNumber = 0;
-  newFeedbackListNumber = 0;
+  totalFeedback = 0;
+  totalSolved = 0;
 
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
   @ViewChild(Trial03Component) trial03component?: Trial03Component;
@@ -28,23 +29,35 @@ export class TrialComponent implements OnInit {
 
   receiveFeedbackList(event: any) {
     this.feedbackList = event;
-    this.feedbackListNumber = this.feedbackList.length;
+    this.totalFeedback = this.feedbackList.length;
   }
 
   receiveNewFeedbackList(event: any) {
     this.newFeedbackList = event;
-    this.newFeedbackListNumber = this.newFeedbackList.filter((item: any) => item.feResponce !== null &&  item.feResponce !== "").length;
+    this.totalSolved = this.newFeedbackList.filter((item: any) => item.feResponce !== null &&  item.feResponce !== "").length;
   }
+  receiveFinalFeedbackList(event: any) {
+    let list = event;
+    this.totalFeedback = list.length;
+    this.totalSolved = list.filter((item:any) => item.feResponce !== null && item.feResponce !== "").length;
+  }
+  
   changeTab(event: any) {
-    this.trial03component?.trial1()
+    this.trial03component?.displayAll()
   }
   filterList(event: any) {
     this.trial02component?.filter()
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private trialPService:TrialPService) { }
 
   ngOnInit(): void {
+    this.trialPService.getItemList().subscribe((res)=>{
+      this.feedbackList = res
+      this.totalFeedback = this.feedbackList.length;
+      this.totalSolved = this.feedbackList.filter((item: any) => item.feResponce !== null &&  item.feResponce !== "").length;
+
+    },(res)=>{})
 
   }
   

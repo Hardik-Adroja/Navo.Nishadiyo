@@ -1,8 +1,8 @@
 <div class="main-content-box">
   <div class="row mb-3 gx-0">
     <div class="col-sm-3 px-3"><strong>Feedback Management</strong></div> 
-    <div class="col-sm-3">Total Feedback: <strong> {{feedbackListNumber}}</strong></div>
-    <div class="col-sm-3">Total Resolved: <strong> {{newFeedbackListNumber}}</strong></div>
+    <div class="col-sm-3">Total Feedback: <strong> {{totalFeedback}}</strong></div>
+    <div class="col-sm-3">Total Resolved: <strong> {{totalSolved}}</strong></div>
   </div>
   
   <div>
@@ -16,7 +16,7 @@
       </tab>
       
       <tab heading="Status" (selectTab)="changeTab($event)">
-        <app-trial03 [finalFeebackList]="newFeedbackList"></app-trial03>
+        <app-trial03 [finalFeebackList]="newFeedbackList" (sendFinalFeebackList)="receiveFinalFeedbackList($event)"></app-trial03>
       </tab>
     </tabset>
   </div>

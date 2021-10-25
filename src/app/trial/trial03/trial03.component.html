@@ -1,18 +1,18 @@
 <div class="container row mt-4">
   <div class="form-check col-1">
-    <input class="form-check-input" type="radio" id="radios1" [(ngModel)]="displayCatagory" (change)= "trial()" value="clear1" >
+    <input class="form-check-input" type="radio" id="radios1" [(ngModel)]="displayCatagory" (change)= "display()" value="clear1" >
     <label class="form-check-label" for="radios1">Clear</label>
   </div>
   <div class="form-check col-1">
-    <input class="form-check-input" type="radio" id="radios2" [(ngModel)]="displayCatagory" (change)= "trial()" value="hold1">
+    <input class="form-check-input" type="radio" id="radios2" [(ngModel)]="displayCatagory" (change)= "display()" value="hold1">
     <label class="form-check-label" for="radios2">Hold</label>
   </div>
   <div class="form-check col-1">
-    <input class="form-check-input" type="radio" id="radios3" [(ngModel)]="displayCatagory" (change)= "trial()" value="reject1">
+    <input class="form-check-input" type="radio" id="radios3" [(ngModel)]="displayCatagory" (change)= "display()" value="reject1">
     <label class="form-check-label" for="radios3">Reject</label>
   </div>
   <div class="form-check col-1">
-    <input class="form-check-input" type="radio" id="radios4" [(ngModel)]="displayCatagory" (change)= "trial1()" value="all">
+    <input class="form-check-input" type="radio" id="radios4" [(ngModel)]="displayCatagory" (change)= "displayAll()" value="all">
     <label class="form-check-label" for="radios4">All</label>
   </div>
   
@@ -27,6 +27,7 @@
           <th scope="col">Feedback Type</th>
           <th scope="col">Feedback</th>
           <th scope="col">Responce</th>
+          <th scope="col" class="text-center">Remove</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +37,7 @@
           <td>{{item.feTypeOf}}</td>
           <td>{{item.feText}}</td>
           <td>{{item.feResponce}}</td>
+          <td class="text-center" ><i class="bi bi-scissors" style="cursor: pointer;" (click)="remove(item.feId)"></i></td>
         </tr>
       </tbody>
     </table>
