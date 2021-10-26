@@ -46,9 +46,11 @@ export class LoginComponent implements OnInit {
     const activeUser = this.userList.filter((user: any) => user.email === this.email && user.password===this.password)
     console.log(activeUser)
     if (activeUser.length>0) {
-      localStorage.setItem("login", JSON.stringify({ login: true }))
+      localStorage.setItem("login", JSON.stringify({ login: true }));
+      localStorage.setItem("userDetail", JSON.stringify(activeUser[0]));
       this.router.navigateByUrl("/home");
       this.utilService.isDisplaySideBar.next(true)
+      
 
     }
     else {

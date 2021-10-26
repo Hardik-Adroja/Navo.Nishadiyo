@@ -1,3 +1,4 @@
+import { UtilService } from './../common/util.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  userDetail: any = "";
+  constructor(private utilService: UtilService) {
+    this.utilService.isDisplaySideBar.subscribe((res) => {
+      if (res) {
+        this.ngOnInit()
+      }
+    })
   }
 
-}
+  ngOnInit(): void {
+    this.userDetail = JSON.parse(localStorage.getItem("userDetail") || "{}");
+    console.log(this.userDetail)
+  }
+  
+
+  }
