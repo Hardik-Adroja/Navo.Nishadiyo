@@ -29,7 +29,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthguardService } from './auth/authguard.service';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { InterseptorService } from './interceptor/interseptor.service';
 
 
 @NgModule({
@@ -68,7 +69,11 @@ import {HttpClientModule} from '@angular/common/http'
     
 
   ],
-  providers: [AuthguardService, MessageService],
+  providers: [AuthguardService, MessageService,{
+    provide: HTTP_INTERCEPTORS, 
+    useClass: InterseptorService, 
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
