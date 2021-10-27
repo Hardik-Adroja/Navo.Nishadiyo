@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("userDetail", JSON.stringify(activeUser[0]));
       this.router.navigateByUrl("/home");
       this.utilService.isDisplaySideBar.next(true)
-      
 
     }
     else {
@@ -83,17 +82,3 @@ export class LoginComponent implements OnInit {
 
   }
 }
-// export function ConfirmedValidator(controlName: string, matchingControlName: string) {
-//   return (formGroup: FormGroup) => {
-//     const control: any = formGroup.controls[controlName];
-//     const matchingControl: any = formGroup.controls[matchingControlName];
-//     // if (matchingControl.error && !matchingControl.errors.confirmedValidator) {
-//     //     return;
-//     // }
-//     // if (control.value !== matchingControl.value) {
-//     //     matchingControl.setErrors({ confirmedValidator: true });
-//     // } else {
-//     //     matchingControl.setErrors(null);
-//     // }
-//   }
-// }

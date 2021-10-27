@@ -9,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   userDetail: any = "";
   constructor(private utilService: UtilService) {
-    this.utilService.isDisplaySideBar.subscribe((res) => {
-      if (res) {
-        this.ngOnInit()
-      }
-    })
+    // this.utilService.isDisplaySideBar.subscribe((res) => {
+    //   if (res) {
+    //     this.ngOnInit()
+    //   }
+    // })
   }
 
   ngOnInit(): void {

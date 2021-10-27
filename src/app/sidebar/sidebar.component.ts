@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     this.router.navigateByUrl("/");
     localStorage.setItem("login",JSON.stringify({login:false}))
     this.utilService.isDisplaySideBar.next(false);
-    localStorage.removeItem("userDetail")
+    // localStorage.removeItem("userDetail")
   }
 
 }
