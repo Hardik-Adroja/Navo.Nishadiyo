@@ -1,15 +1,16 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { FormGroup, FormControl, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { ItemService } from '../Services/items/item.service';
+import { UtilService } from '../common/util.service';
 
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.scss']
 })
-export class ItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit, OnDestroy {
 
   buttonPressed = false;
   ungli = "";
@@ -27,12 +28,15 @@ export class ItemsComponent implements OnInit {
   localClients: any = "";
 
 
-  constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder, private itemService: ItemService) {
+  constructor(private primengConfig: PrimeNGConfig, private fb: FormBuilder, private itemService: ItemService, private utilService: UtilService) {
 
   }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+
+    this.utilService.reportAtTime.next(["itemIn",null,null]);
+    console.log(new Date())
 
     this.itemService.getItemList().subscribe((res) => {
       this.clients = res;
@@ -54,7 +58,6 @@ export class ItemsComponent implements OnInit {
   }
 
   findBhidu() {
-    console.log(this.clientsCopy)
     this.clients = this.clientsCopy.filter((bhidu: any) => bhidu.name.toUpperCase().includes(this.ungli.toUpperCase())
       || bhidu.thikana.toUpperCase().includes(this.ungli.toUpperCase())
       || bhidu.dhandha.toUpperCase().includes(this.ungli.toUpperCase())
@@ -65,13 +68,17 @@ export class ItemsComponent implements OnInit {
 
   newClientsAdd() {
     if (this.newClients.valid) {
-
       this.clients.push(this.newClients.value);
       this.itemService.addItemInList(this.clients).subscribe((res) => { console.log(res) }, (err) => { })
       this.newClients.reset();
       this.newClients.controls['id'].setValue(Math.random() * 10)
       this.buttonPressed = false;
     }
+  }
+
+  ngOnDestroy() {
+    this.utilService.reportAtTime.next(["itemOut","itemIn","itemTotal"]);
+    console.log(new Date())
   }
 
 }

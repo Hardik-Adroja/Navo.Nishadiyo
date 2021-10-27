@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from '../common/util.service';
 
 @Component({
   selector: 'app-report',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  visitTime: any = {}
+
+  constructor(private utilService: UtilService) {
+
+    this.utilService.reportAtTime.subscribe((res: any) => {
+      this.utilService.setItemInTIme(res);
+    })
+  }
 
   ngOnInit(): void {
+    this.visitTime = this.utilService.getItemInTIme()
+  }
+
+  getReport() {
+    this.visitTime = this.utilService.getItemInTIme()
+
+    console.log(this.visitTime)
   }
 
 }

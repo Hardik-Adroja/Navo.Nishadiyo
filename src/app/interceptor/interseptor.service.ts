@@ -19,7 +19,6 @@ export class InterseptorService implements HttpInterceptor {
     //   return next.handle(req);
     // }
     return next.handle(req).pipe(map((event:any)=>{
-      console.log(event)
       return event
     },(error:any)=>{
       return error

@@ -1,0 +1,32 @@
+<div class="main-content-box">
+    <div class="container">
+        <button (click)="getReport()">Click</button>
+        <div>
+            <table class="table table-borderless mt-3">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
+                        <th>Total Time Spend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="visitTime.itemOut!=''">
+                        <td>Item</td>
+                        <td>{{visitTime.itemIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+                        <td>{{visitTime.itemOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+                        <td>{{visitTime.itemTotal}}</td>
+                    </tr>
+                    <tr *ngIf="visitTime.trialIn!=''">
+                        <td>Trial</td>
+                        <td>{{visitTime.trialIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+                        <td>{{visitTime.trialOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+                        <td>{{visitTime.trialTotal}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

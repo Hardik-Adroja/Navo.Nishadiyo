@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.userDetail = JSON.parse(localStorage.getItem("userDetail") || "{}");
-    console.log(this.userDetail)
   }
   
 
