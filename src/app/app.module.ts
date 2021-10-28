@@ -32,6 +32,7 @@ import { MessageService } from 'primeng/api';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { InterseptorService } from './interceptor/interseptor.service';
 import { TimeformatPipe } from './pipes/timeformat.pipe';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { TimeformatPipe } from './pipes/timeformat.pipe';
     TableModule,
     TabsModule.forRoot(),
     ToastModule,
+    NgApexchartsModule
     
 
   ],

@@ -12,28 +12,28 @@ export class UtilService {
   visitTime: any = {
     itemIn: "",
     itemOut: "",
-    itemTotal: "",
+    itemTotal: 0,
     trialIn:"",
     trialOut:"",
-    trialTotal:"",
+    trialTotal:0,
     homeIn:"",
     homeOut:"",
-    homeTotal:"",
+    homeTotal:0,
     serviceIn:"",
     serviceOut:"",
-    serviceTotal:"",
+    serviceTotal:0,
     productIn:"",
     productOut:"",
-    productTotal:"",
+    productTotal:0,
     dashboardIn:"",
     dashboardOut:"",
-    dashboardTotal:"", 
+    dashboardTotal:0, 
     findIn:"",
     findOut:"",
-    findTotal:"",
+    findTotal:0,
     contactIn:"",
     contactOut:"",
-    contactTotal:"", 
+    contactTotal:0, 
   }
 
 
@@ -50,12 +50,6 @@ export class UtilService {
     this.visitTime[index0] = new Date().getTime();
     if (index1 && index2 !== null) {
       this.visitTime[index2] = this.visitTime[index0] - this.visitTime[index1];
-      // let ms = this.visitTime[index0] - this.visitTime[index1];
-      // let hour = Math.floor(ms / 3600000)
-      // let min = Math.floor((ms - (3600000 * hour)) / 60000)
-      // let sec = Math.round((ms - (3600000 * hour) - (60000 * min)) / 1000)
-      // this.visitTime[index2] = `${hour} hr : ${min} min : ${sec} sec`
-
     }
 
   }
