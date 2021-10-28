@@ -16,10 +16,10 @@ export class TimeformatPipe implements PipeTransform {
       return `<b>${sec}</b> Second`;
     }
     else if (hour == 0) {
-      return `${min} Minute : ${sec} Second`
+      return `<b>${min}</b> Minute : <b>${sec}</b> Second`
     }
     else {
-      return `${hour} Hour : ${min} Minute : ${sec} Second`
+      return `<b>${hour}</b> Hour : <b>${min}</b> Minute : <b>${sec}</b> Second`
     }
   }
 
