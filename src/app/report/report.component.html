@@ -16,48 +16,48 @@
             <td>Home</td>
             <td>{{visitTime.homeIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.homeOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.homeTotal}}</td>
+            <td>{{visitTime.homeTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.serviceIn!=''">
             <td>Service </td>
             <td>{{visitTime.serviceIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.serviceOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.serviceTotal}}</td>
+            <td>{{visitTime.serviceTotal | timeformat}}</td>
           <tr *ngIf="visitTime.productIn!=''">
             <td>Product</td>
             <td>{{visitTime.productIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.productOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.productTotal}}</td>
+            <td>{{visitTime.productTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.itemIn!=''">
             <td>Item</td>
             <td>{{visitTime.itemIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.itemOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.itemTotal}}</td>
+            <td>{{visitTime.itemTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.dashboardIn!=''">
             <td>Dashboard</td>
             <td>{{visitTime.dashboardIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.dashboardOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.dashboardTotal}}</td>
+            <td>{{visitTime.dashboardTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.findIn!=''">
             <td>Find</td>
             <td>{{visitTime.findIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.findOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.findTotal}}</td>
+            <td>{{visitTime.findTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.trialIn!=''">
             <td>Trial</td>
             <td>{{visitTime.trialIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.trialOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.trialTotal}}</td>
+            <td>{{visitTime.trialTotal | timeformat}}</td>
           </tr>
           <tr *ngIf="visitTime.contactIn!=''">
             <td>Contact</td>
             <td>{{visitTime.contactIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.contactOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.contactTotal}}</td>
+            <td>{{visitTime.contactTotal | timeformat}}</td>
           </tr>
         </tbody>
       </table>

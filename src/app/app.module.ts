@@ -31,6 +31,7 @@ import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { InterseptorService } from './interceptor/interseptor.service';
+import { TimeformatPipe } from './pipes/timeformat.pipe';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { InterseptorService } from './interceptor/interseptor.service';
     Trial02Component,
     Trial03Component,
     LoginComponent,
+    TimeformatPipe,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { InterseptorService } from './interceptor/interseptor.service';
     
 
   ],
-  providers: [AuthguardService, MessageService,{
+  providers: [AuthguardService, 
+    MessageService,{
     provide: HTTP_INTERCEPTORS, 
     useClass: InterseptorService, 
     multi: true

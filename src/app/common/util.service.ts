@@ -28,7 +28,7 @@ export class UtilService {
     dashboardIn:"",
     dashboardOut:"",
     dashboardTotal:"", 
-    findtIn:"",
+    findIn:"",
     findOut:"",
     findTotal:"",
     contactIn:"",
@@ -49,11 +49,13 @@ export class UtilService {
     let index2 = res[2]
     this.visitTime[index0] = new Date().getTime();
     if (index1 && index2 !== null) {
-      let ms = this.visitTime[index0] - this.visitTime[index1];
-      let hour = Math.floor(ms / 3600000)
-      let min = Math.floor((ms - (3600000 * hour)) / 60000)
-      let sec = Math.round((ms - (3600000 * hour) - (60000 * min)) / 1000)
-      this.visitTime[index2] = `${hour} hr : ${min} min : ${sec} sec`
+      this.visitTime[index2] = this.visitTime[index0] - this.visitTime[index1];
+      // let ms = this.visitTime[index0] - this.visitTime[index1];
+      // let hour = Math.floor(ms / 3600000)
+      // let min = Math.floor((ms - (3600000 * hour)) / 60000)
+      // let sec = Math.round((ms - (3600000 * hour) - (60000 * min)) / 1000)
+      // this.visitTime[index2] = `${hour} hr : ${min} min : ${sec} sec`
+
     }
 
   }
