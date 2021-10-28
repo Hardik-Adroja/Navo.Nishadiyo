@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { UtilService } from './../common/util.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 
@@ -7,7 +8,7 @@ import 'jspdf-autotable';
   templateUrl: './find.component.html',
   styleUrls: ['./find.component.scss']
 })
-export class FindComponent implements OnInit {
+export class FindComponent implements OnInit,OnDestroy {
   sarifList = [
     {
       id: 1,
@@ -71,10 +72,14 @@ export class FindComponent implements OnInit {
   find = "";
   sarifListCopy: any = [];
 
-  constructor() { }
+  constructor(private utilService:UtilService) { }
 
   ngOnInit(): void {
     this.sarifListCopy = this.sarifList
+    this.utilService.reportAtTime.next(["findIn",null,null])
+  }
+  ngOnDestroy(){
+    this.utilService.reportAtTime.next(["findOut","findIn","findTotal"])
   }
   deleteSarif(id: number) {
     console.log(id)

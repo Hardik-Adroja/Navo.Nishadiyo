@@ -1,32 +1,67 @@
 <div class="main-content-box">
-    <div class="container">
-        <button (click)="getReport()">Click</button>
-        <div>
-            <table class="table table-borderless mt-3">
-                <thead>
-                    <tr>
-                        <th>Component</th>
-                        <th>In Time</th>
-                        <th>Out Time</th>
-                        <th>Total Time Spend</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngIf="visitTime.itemOut!=''">
-                        <td>Item</td>
-                        <td>{{visitTime.itemIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-                        <td>{{visitTime.itemOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-                        <td>{{visitTime.itemTotal}}</td>
-                    </tr>
-                    <tr *ngIf="visitTime.trialIn!=''">
-                        <td>Trial</td>
-                        <td>{{visitTime.trialIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-                        <td>{{visitTime.trialOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-                        <td>{{visitTime.trialTotal}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <div class="container">
+    <button (click)="getReport()">Click</button>
+    <div>
+      <table class="table table-borderless mt-3">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>In Time</th>
+            <th>Out Time</th>
+            <th>Total Time Spend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="visitTime.homeIn!=''">
+            <td>Home</td>
+            <td>{{visitTime.homeIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.homeOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.homeTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.serviceIn!=''">
+            <td>Service </td>
+            <td>{{visitTime.serviceIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.serviceOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.serviceTotal}}</td>
+          <tr *ngIf="visitTime.productIn!=''">
+            <td>Product</td>
+            <td>{{visitTime.productIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.productOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.productTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.itemIn!=''">
+            <td>Item</td>
+            <td>{{visitTime.itemIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.itemOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.itemTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.dashboardIn!=''">
+            <td>Dashboard</td>
+            <td>{{visitTime.dashboardIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.dashboardOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.dashboardTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.findIn!=''">
+            <td>Find</td>
+            <td>{{visitTime.findIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.findOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.findTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.trialIn!=''">
+            <td>Trial</td>
+            <td>{{visitTime.trialIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.trialOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.trialTotal}}</td>
+          </tr>
+          <tr *ngIf="visitTime.contactIn!=''">
+            <td>Contact</td>
+            <td>{{visitTime.contactIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.contactOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
+            <td>{{visitTime.contactTotal}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
 </div>

@@ -15,7 +15,25 @@ export class UtilService {
     itemTotal: "",
     trialIn:"",
     trialOut:"",
-    trialTotal:""
+    trialTotal:"",
+    homeIn:"",
+    homeOut:"",
+    homeTotal:"",
+    serviceIn:"",
+    serviceOut:"",
+    serviceTotal:"",
+    productIn:"",
+    productOut:"",
+    productTotal:"",
+    dashboardIn:"",
+    dashboardOut:"",
+    dashboardTotal:"", 
+    findtIn:"",
+    findOut:"",
+    findTotal:"",
+    contactIn:"",
+    contactOut:"",
+    contactTotal:"", 
   }
 
 
