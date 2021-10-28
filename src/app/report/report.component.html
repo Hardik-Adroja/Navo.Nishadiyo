@@ -57,7 +57,7 @@
             <td>Contact</td>
             <td>{{visitTime.contactIn | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
             <td>{{visitTime.contactOut | date:'dd/MMM/YYYY hh:mm:ss'}}</td>
-            <td>{{visitTime.contactTotal | timeformat}}</td>
+            <td [innerHTML] = "visitTime.contactTotal | timeformat"></td>
           </tr>
         </tbody>
       </table>
