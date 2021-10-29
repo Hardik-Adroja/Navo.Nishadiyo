@@ -1,12 +1,15 @@
 .sidebar {
   height: 100vh;
-  background: #212529;
+  background: #333558;
+  border-radius: 10px;
+  // box-shadow: 3px 0px 10px rgba(33,37,41,0.1);
   // margin-top: 50px;
-  width: 200px;
+  width: 190px;
   position: fixed;
-  top: 0;
-  left: 0;
-  color: #fff;
+  top: 10px;
+  left: 10px;
+  height: 97vh;
+  color: rgb(15, 15, 15);
   display: block;
   z-index: 100;
 
@@ -21,7 +24,7 @@
     transition-duration: 0.5s;
 
     a {
-      color: #fff;
+      color: rgb(247, 242, 242);
       padding: 15px 25px;
       transition-duration: 0s !important;
       // font-family: var(--bs-font-monospace);
@@ -29,10 +32,10 @@
       &:hover,
       .active:not(last-child) {
         color: black;
-        background-color: white;
+        background-color: #e6e6ea;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-        border-left: 5px solid #ffc107;
+        // border-left: 5px solid #ffc107;
       }
     }
 
@@ -59,12 +62,14 @@
 }
 
 .active:not(last-child) {
-  color: black !important;
-  background-color: white;
+  color: #070707 !important;
+  background-color: #e6e6ea;
   position: relative;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-left: 5px solid #ffc107
+  // border-top-left-radius: 10px;
+  // border-bottom-left-radius: 10px;
+  // text-transform: uppercase;
+  // border-radius: 10px;
+  // border-left: 5px solid #ffc107
 }
 
 
@@ -78,26 +83,28 @@ ul li:hover a::before,
 .active::before {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 190px;
+  height: 10px;
   background-color: transparent;
   right: 0px;
   top: 50px;
-  border-radius: 50%;
-  box-shadow: 15px -15px 0 0px white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0px -6px 0px 6px #e6e6ea;
 }
 
 ul li:hover a::after,
 .active::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 190px;
+  height: 10px;
   background-color: transparent;
   right: 0px;
-  top: -30px;
-  border-radius: 50%;
-  box-shadow: 15px 15px 0 0px white;
+  top: -10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 6px 0 6px #e6e6ea;
 }
 .logOut {
   position: absolute;

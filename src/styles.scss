@@ -6,6 +6,7 @@
     width: calc(100%-200px) !important;
 }
 body {
+    background-color: #e6e6ea !important;
     // font-family: var(--bs-font-monospace) !important;
     // font-family: 'Lato', sans-serif !important;
     font-family: 'Poppins', sans-serif !important;
@@ -18,8 +19,25 @@ body {
 .f-18{
     font-size: 18px;
 }
+.br10 {
+    border-radius: 1.25rem !important;
+}
+.br1 {
+    border-radius: 1rem !important;
+}
+.cardCol {
+    border-radius: 1.25rem !important;
+    background-color: #b3b3c0 !important;
+    box-shadow: 3px 3px 10px #ccccd5;
+}
+.cardColSm {
+    border-radius: 1rem !important;
+    background-color: #808197 !important;
+    box-shadow: 3px 3px 10px #ccccd5;
+}
 .cardbodycolor{
     background-color: rgb(48 52 57 / 80%);
+    
 }
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
