@@ -49,7 +49,7 @@ export class ReportComponent implements OnInit {
     let value1 = [this.visitTime.homeTotal, this.visitTime.serviceTotal, this.visitTime.productTotal, this.visitTime.itemTotal, this.visitTime.dashboardTotal, this.visitTime.trialTotal, this.visitTime.findTotal, this.visitTime.contactTotal];
 
     this.chartOptions = {
-      series: this.chartType=="pie"?value1:[{data:value1}],
+      series: [{data:value1}],
       chart: {
         width: 420,
         type: this.chartType
